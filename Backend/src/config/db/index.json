@@ -1,0 +1,25 @@
+[
+  { "$ref": "./schemas/admin.json" },
+  { "$ref": "./schemas/users.json" },
+  { "$ref": "./schemas/ai_req_res.json" },
+  { "$ref": "./schemas/question.json" },
+  { "$ref": "./schemas/session.json" },
+  { "$ref": "./schemas/user_gallery.json" },
+  { "$ref": "./schemas/sub_session.json" },
+  { "$ref": "./schemas/user_activity.json" },
+  { "$ref": "./schemas/customer_answer.json" },
+  { "$ref": "./schemas/customer_answer_file.json" },
+  { "$ref": "./schemas/editor_customer.json" },
+  { "$ref": "./schemas/audio_sessions.json" },
+  { "$ref": "./schemas/audio_transcripts.json" },
+  { "$ref": "./schemas/audio_mapped_answers.json" },
+  { "$ref": "./schemas/audio_chapter_drafts.json" },
+  { "$ref": "./schemas/start_journey_content.json" },
+  { "$ref": "./schemas/board_placements.json" },
+  { "$ref": "./schemas/board_quotes.json" },
+  { "$ref": "./schemas/book_pages.json" },
+  { "$ref": "./schemas/approved_flipbooks.json" },
+  { "$ref": "./schemas/flipbook_notes.json" },
+  { "$ref": "./schemas/flipbook_publish_requests.json" }
+
+]

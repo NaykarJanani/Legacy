@@ -1,0 +1,206 @@
+        /* ===================== Design tokens ===================== */
+        .gip-section {
+            --gip-coral: #f8f8f8;
+            --gip-coral-deep: #f1473f;
+            --gip-ink: #161616;
+            --gip-paper: #fdf4ef;
+            --gip-gap: clamp(8px, 1.6vw, 16px);
+            --gip-pad-x: clamp(20px, 6vw, 64px);
+
+            position: relative;
+            width: 100%;
+            background: var(--gip-coral);
+            padding-bottom: var(--gip-gap);
+            overflow: hidden;
+            font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+        }
+
+        /* ===================== Header block ===================== */
+        .gip-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: clamp(16px, 4vw, 40px);
+            padding: clamp(40px, 7vw, 88px) var(--gip-pad-x) clamp(32px, 5vw, 56px);
+            flex-wrap: wrap;
+        }
+
+        .gip-heading-group {
+            /*max-width: 560px;*/
+        }
+
+        .gip-title {
+            margin: 0 0 clamp(12px, 2vw, 20px);
+            font-size: clamp(28px, 4.2vw, 44px);
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--gip-ink);
+            letter-spacing: -0.01em;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        .gip-desc {
+            margin: 0;
+            font-size: clamp(13px, 1.4vw, 15px);
+            line-height: 1.7;
+            color: rgba(22, 22, 22, 0.72);
+            max-width: 420px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        
+        /* ===================== Marquee rows ===================== */
+        .gip-marquee-row {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: var(--gip-gap);
+        }
+
+        .gip-marquee-row:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* mask edges so the loop join feels intentional, not abrupt */
+        .gip-marquee-row {
+            -webkit-mask-image: linear-gradient(90deg,
+                    transparent 0,
+                    #000 2%,
+                    #000 98%,
+                    transparent 100%);
+            mask-image: linear-gradient(90deg,
+                    transparent 0,
+                    #000 2%,
+                    #000 98%,
+                    transparent 100%);
+        }
+
+        .gip-marquee-track {
+            display: flex;
+            width: max-content;
+            gap: var(--gip-gap);
+            will-change: transform;
+        }
+
+        .gip-marquee-track--right {
+            animation: gip-scroll-left 38s linear infinite;
+        }
+
+        .gip-marquee-track--left {
+            animation: gip-scroll-right 38s linear infinite;
+        }
+
+        /* Pause only the row being hovered/focused */
+        .gip-marquee-row:hover .gip-marquee-track,
+        .gip-marquee-row:focus-within .gip-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes gip-scroll-left {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes gip-scroll-right {
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* ===================== Image cards ===================== */
+        .gip-card {
+            position: relative;
+            flex: 0 0 auto;
+            width: clamp(150px, 18vw, 260px);
+            height: clamp(150px, 14vw, 200px);
+            border-radius: 4px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .gip-marquee-row--top .gip-card {
+            height: clamp(160px, 16vw, 220px);
+        }
+
+        .gip-marquee-row--top .gip-card--circle {
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+            width: clamp(160px, 16vw, 220px);
+            height: clamp(160px, 16vw, 220px);
+        }
+
+        .gip-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .gip-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* ===================== Responsive tuning ===================== */
+        @media (max-width: 1024px) {
+            .gip-header {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .gip-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+           
+
+            .gip-card,
+            .gip-marquee-row--top .gip-card {
+                width: clamp(120px, 38vw, 180px);
+                height: clamp(120px, 30vw, 160px);
+            }
+
+            .gip-marquee-row--top .gip-card--circle {
+                width: clamp(130px, 38vw, 180px);
+                height: clamp(130px, 38vw, 180px);
+            }
+        }
+
+        @media (max-width: 420px) {
+            .gip-title {
+                font-size: 26px;
+            }
+
+            .gip-card,
+            .gip-marquee-row--top .gip-card {
+                width: 42vw;
+                height: 34vw;
+            }
+
+            .gip-marquee-row--top .gip-card--circle {
+                width: 42vw;
+                height: 42vw;
+            }
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+
+            .gip-marquee-track--right,
+            .gip-marquee-track--left {
+                animation: none;
+            }
+        }

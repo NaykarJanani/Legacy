@@ -1,0 +1,40 @@
+{
+  "table_name": "board_quotes",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "board_type",
+      "type": "VARCHAR(50) NOT NULL"
+    },
+    {
+      "name": "position_id",
+      "type": "VARCHAR(100) NOT NULL"
+    },
+    {
+      "name": "quote",
+      "type": "TEXT"
+    },
+    {
+      "name": "updated_by_editor_id",
+      "type": "int"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id, board_type, position_id)"
+  ]
+}

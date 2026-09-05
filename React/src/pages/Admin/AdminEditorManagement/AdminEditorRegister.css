@@ -1,0 +1,161 @@
+/* Background and layout */
+.editor-bg {
+    padding: 30px;
+  min-height: 80vh;
+  width: 100%;
+  background: #eef5fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Center card */
+.editor-card {
+  max-width: 370px;
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 6px 34px #0000000d;
+  padding: 34px 26px 28px 26px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Typography */
+.editor-title {
+  font-size: 1.55rem;
+  margin: 0 0 10px 0;
+  color: #3587b6;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.editor-desc {
+  color: #8b8b8b;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Form fields */
+.editor-form {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.editor-field label {
+  color: #282828;
+  font-size: 0.97rem;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+.editor-field input {
+  font-size: 1rem;
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: 1px solid #ececec;
+  outline: none;
+  background: #fafbfc;
+  transition: border-color 0.2s;
+}
+.editor-field input:focus {
+  border: 1.5px solid #87b7ca;
+  background: #eefcff;
+}
+
+/* Submit button */
+.editor-submit {
+  width: 100%;
+  margin-top: 10px;
+  background: #77c0dd;
+  color: #171616;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.09rem;
+  font-weight: bold;
+  padding: 13px 0;
+  box-shadow: 0 2px 10px #f8cc862a;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.editor-submit:hover {
+  background: #5b9cb6;
+}
+
+/* Decorative geometric elements (left, right squares) */
+.editor-decor {
+  position: absolute;
+  width: 56px;
+  height: 110px;
+  background: #ffe3a1;
+  bottom: 40px;
+  z-index: 1;
+  border-radius: 13px;
+}
+.decor-left {
+  left: 34px;
+  bottom: 40px;
+  background: #ffe3a1;
+  border: 2.5px dotted #282828;
+}
+.decor-right {
+  right: 34px;
+  bottom: 44px;
+  background: #ffe3a1;
+  border: 2.5px dotted #282828;
+}
+
+/* Fun doodle lines, can be SVG or background image for more flair */
+.editor-doodle {
+  position: absolute;
+  width: 130px;
+  height: 48px;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+.editor-doodle-top {
+  top: 31px;
+  left: 14vw;
+  background-image: url('data:image/svg+xml;utf8,<svg width="130" height="48" xmlns="http://www.w3.org/2000/svg"><path d="M2,33 Q40,-23 128,19" stroke="%23ececec" stroke-width="3" fill="none"/></svg>');
+}
+.editor-doodle-bottom {
+  bottom: 25px;
+  right: 10vw;
+  background-image: url('data:image/svg+xml;utf8,<svg width="130" height="48" xmlns="http://www.w3.org/2000/svg"><path d="M2,23 Q80,66 128,8" stroke="%23ececec" stroke-width="3" fill="none"/></svg>');
+}
+
+@media (max-width: 600px) {
+  .editor-card {
+    max-width: 99vw;
+    padding: 24px 12px 18px 12px;
+  }
+  .decor-left,
+  .decor-right {
+    width: 34px; height: 72px; left: 9px; right: 9px; bottom: 12px;
+  }
+  .editor-doodle-top,
+  .editor-doodle-bottom {
+    left: 2vw;
+    right: 1vw;
+    width: 68px;
+    height: 26px;
+    top: 10px;
+    bottom: 5px;
+  }
+}
+
+.error{
+    color: red;
+}

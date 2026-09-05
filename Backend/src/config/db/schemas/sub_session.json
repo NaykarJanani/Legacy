@@ -1,0 +1,33 @@
+{
+    "table_name": "sub_session",
+    "fields": [
+      {
+        "name": "sub_session_id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "session_id",
+        "type": "int"
+      },
+       {
+        "name": "seq",
+        "type": "int"
+      },
+      {
+        "name": "title",
+        "type": "TEXT NOT NULL"
+      },
+      {
+        "name": "status",
+        "type": "BOOLEAN DEFAULT TRUE"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      }
+    ]
+  }

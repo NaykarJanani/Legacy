@@ -1,0 +1,250 @@
+.ufb-container {
+  min-height: 100vh;
+  padding: 24px clamp(16px, 4vw, 48px) 48px;
+  background: #FFF8F0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #3D2B2B;
+}
+
+.ufb-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.ufb-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.ufb-action-btn {
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+  border: none;
+}
+
+.ufb-action-btn:hover:not(:disabled) {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.ufb-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.ufb-action-btn--outline {
+  background: #fff;
+  color: #8B5E52;
+  border: 1.5px solid #D4846A;
+}
+
+.ufb-action-btn--filled {
+  background: #3D9970;
+  color: #fff;
+}
+
+.ufb-notes-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E8C4B8;
+}
+
+.ufb-notes-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ufb-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: #8B5E52;
+  text-align: center;
+  margin: 0;
+}
+
+.ufb-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(16px, 2vw, 32px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .ufb-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Book column ── */
+.ufb-book-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ufb-flipbook-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  padding: 12px;
+}
+
+.ufb-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.ufb-controls button {
+  padding: 9px 20px;
+  background: #D4846A;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.ufb-controls button:hover:not(:disabled) {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.ufb-controls button:disabled {
+  background: #cbb9b3;
+  cursor: not-allowed;
+}
+
+.ufb-controls span {
+  font-size: .9rem;
+  color: #7A6060;
+}
+
+/* ── Notes column ── */
+.ufb-notes-column {
+  background: #fff;
+  border: 2px solid #E8C4B8;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(61,43,43,.10);
+  padding: clamp(14px, 2vw, 22px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 24px;
+}
+
+.ufb-notes-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #8B5E52;
+}
+
+.ufb-notes-textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1.5px solid #E8C4B8;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: #3D2B2B;
+  background: #FFF8F0;
+}
+
+.ufb-notes-textarea:focus {
+  outline: none;
+  border-color: #D4846A;
+}
+
+.ufb-notes-save-btn {
+  align-self: flex-start;
+  background: #D4846A;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+.ufb-notes-save-btn:hover:not(:disabled) {
+  opacity: .88;
+}
+
+.ufb-notes-save-btn:disabled {
+  background: #cbb9b3;
+  cursor: not-allowed;
+}
+
+.ufb-notes-hint {
+  font-size: .74rem;
+  color: #7A6060;
+}
+
+/* ── Loading / empty states ── */
+.ufb-loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #7A6060;
+  font-size: 1rem;
+}
+
+.ufb-empty {
+  max-width: 420px;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff;
+  border: 2px solid #E8C4B8;
+  border-radius: 16px;
+  padding: 40px 28px;
+  box-shadow: 0 4px 24px rgba(61,43,43,.10);
+}
+
+.ufb-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.ufb-empty h2 {
+  color: #8B5E52;
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+}
+
+.ufb-empty p {
+  color: #7A6060;
+  font-size: .88rem;
+  margin-bottom: 20px;
+}
+
+.ufb-back-btn {
+  background: #D4846A;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+}

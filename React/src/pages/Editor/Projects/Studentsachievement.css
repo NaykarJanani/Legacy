@@ -1,0 +1,589 @@
+.alphabet-wrapper {
+  min-height: 100vh;
+  background: #f8f8f8;
+  color: #eef2ff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.alphabet-header {
+  background: rgba(15, 19, 30, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(90, 150, 220, 0.25);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.alphabet-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.alphabet-header h1 .gradient-text {
+  background: linear-gradient(120deg, #bfdbfe, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.alphabet-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  color: #ffffff;
+}
+
+.status-badge {
+  background: #1e2a44;
+  padding: 0.35rem 1rem;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+/* Letter strip */
+.alphabet-main {
+  padding: 2rem;
+  background: #f8f8f8;
+}
+
+/* This container is now the actual horizontal scroller.
+   overflow-x: auto + scroll-snap gives a smooth, native scroll/swipe
+   experience and removes any need to keep "letters per page" math
+   in sync with the CSS breakpoints below.
+   The scrollbar itself is hidden (see rules below) but scrolling via
+   mouse wheel, trackpad, touch swipe, and keyboard still works fully. */
+.alphabet-track-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+  padding-bottom: 10px;
+
+  /* Hide scrollbar (Firefox) */
+  scrollbar-width: none;
+  /* Hide scrollbar (IE/Edge legacy) */
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar (WebKit / Chromium / Safari) */
+.alphabet-track-container::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.alphabet-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content; /* let the row grow to fit all 26 letters */
+}
+
+/* Letter Box */
+.letter-box {
+  /* Fixed pixel width per box instead of percentage-of-container.
+     Since the container now scrolls instead of paging, each box just
+     needs a comfortable fixed size; the row naturally overflows and
+     scrolls instead of needing to fit a fixed number "per page". */
+  flex: 0 0 200px;
+  width: 200px;
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+  position: relative;
+  height: 220px;
+  cursor: pointer;
+}
+
+.letter-box svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.letter-box:hover svg {
+  transform: scale(1.04);
+}
+
+.letter-box--active svg {
+  outline: 3px solid #7c241c;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.letter-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 4px 14px;
+  border-radius: 20px;
+  color: white;
+  font-family: monospace;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+/* Detail section */
+.achievement-detail {
+  background: #f8f8f8;
+  padding: 3rem 2rem 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* True semicircle arc */
+.achievement-detail__arch {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: #ffffff;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Decorative image behind the center circle area */
+.achievement-detail__arch-bg {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) saturate(1.1);
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.achievement-detail__arch-bg-image {
+  /* Sizing/position comes from CropImg inline (pixel-accurate cover +
+     saved pan/zoom); object-fit here was double-cropping on top of that
+     saved transform. */
+  display: block;
+}
+
+/* Content sits above the decorative image, with overlay for readability */
+.achievement-detail__content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 4rem 3rem;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(2px);
+  overflow-y: auto;
+}
+
+.achievement-detail__center {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  border: 4px solid #ffffff;
+}
+
+.achievement-detail__image {
+  /* Sizing/position comes from CropImg inline (pixel-accurate cover +
+     saved pan/zoom); object-fit here was double-cropping on top of that
+     saved transform. */
+  display: block;
+}
+
+.achievement-detail__image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #94a3b8;
+  background: #e2e8f0;
+}
+
+.achievement-detail__meta {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  font-weight: 700;
+  color: #7a1f1f;
+  font-size: 1.1rem;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.achievement-detail__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.achievement-detail__col p {
+  line-height: 1.6;
+  color: #1f2937;
+  font-family: 'Cairo', sans-serif;
+}
+
+.achievement-detail__readmore {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.achievement-detail__readmore:hover {
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .letter-box {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+  .achievement-detail__arch {
+    aspect-ratio: unset;
+    height: 600px;
+    border-radius: 50% 50% 0 0 / 55% 63% 0 0;
+  }
+
+  .achievement-detail__content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 4rem 3rem 2rem;
+  }
+
+  .achievement-detail__columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .letter-box {
+    flex: 0 0 130px;
+    width: 130px;
+    height: 160px;
+  }
+
+  .achievement-detail__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-detail__meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .achievement-detail__arch {
+    aspect-ratio: unset;
+    height: 650px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .achievement-detail__content {
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+  }
+
+  .achievement-detail__arch-bg {
+    width: 220px;
+    height: 220px;
+    top: 4%;
+  }
+}
+@media (max-width:425px) {
+  .achievement-detail__center{
+    height: 100px;
+    width: 100px;
+  }
+  
+}
+
+/* --- Image upload button --- */
+.achievement-detail__upload-btn {
+  margin-top: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.achievement-detail__upload-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+/* --- Year / Name — look like the old static spans, become visibly
+   editable (underline + focus ring) only on interaction --- */
+.achievement-detail__year-input,
+.achievement-detail__name-input {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  text-align: center;
+  border-bottom: 1px dashed transparent;
+  padding: 2px 6px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.achievement-detail__year-input {
+  color: #7f1d1d;
+  font-weight: 700;
+  font-size: 15px;
+  width: 90px;
+}
+
+.achievement-detail__name-input {
+  color: #7f1d1d;
+  font-weight: 700;
+  font-size: 15px;
+  width: 160px;
+}
+
+.achievement-detail__year-input:hover,
+.achievement-detail__name-input:hover {
+  border-bottom-color: #cbd5e1;
+}
+
+.achievement-detail__year-input:focus,
+.achievement-detail__name-input:focus {
+  outline: none;
+  border-bottom-color: #64748b;
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+/* --- Left/right column textareas — look like plain paragraph text
+   until focused, matching the old read-only layout --- */
+.achievement-detail__col-textarea {
+  width: 100%;
+  min-height: 90px;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.achievement-detail__col-textarea:hover {
+  background: #f8fafc;
+}
+
+.achievement-detail__col-textarea:focus {
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #cbd5e1;
+}
+
+/* --- Submit button (single, saves year/name/both columns together) --- */
+.achievement-detail__submit-btn {
+  display: block;
+  margin: 14px auto 0;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #334155;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.achievement-detail__submit-btn:hover:not(:disabled) {
+  background: #1e293b;
+}
+
+.achievement-detail__submit-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ADJUST PHOTO — crop / zoom modal
+   Copied verbatim from Visionboard.css's .nb-crop-* rules, so the
+   Achievement page's Adjust Photo modal is pixel-identical to Vision
+   Board's.
+   ───────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --nb-ink: #1a1a1a;
+    --nb-ink-light: #6b6560;
+    --nb-ink-faint: #b0aba5;
+}
+
+.nb-crop-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.nb-crop-modal {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 328px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, .3);
+    overflow: visible;
+}
+
+.nb-crop-modal h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--nb-ink);
+    margin-bottom: 6px;
+}
+
+.nb-crop-hint {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--nb-ink-light);
+    margin-bottom: 16px;
+}
+
+.nb-crop-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 auto 16px;
+    background: #eee;
+    touch-action: none;
+    cursor: grab;
+}
+
+.nb-crop-viewport--dragging {
+    cursor: grabbing;
+}
+
+.nb-crop-img {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+.nb-crop-zoom-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--nb-ink-light);
+}
+
+.nb-crop-zoom-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--nb-ink);
+}
+
+.nb-crop-error {
+    color: #a3402f;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.nb-crop-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.nb-crop-btn {
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: none;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+
+.nb-crop-btn--ghost {
+    background: transparent;
+    color: var(--nb-ink-light);
+    border: 1px solid var(--nb-ink-faint);
+}
+
+.nb-crop-btn--solid {
+    background: var(--nb-ink);
+    color: #fff;
+}
+
+/* Not part of Vision Board — small addition for this page only, since
+   Achievement has two image action buttons (Change Image / Adjust Photo)
+   side by side under the photo, where Vision Board has none. */
+.achievement-detail__image-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+/* Makes the round achievement photo itself act as a click target for
+   the Adjust Photo crop editor, with a subtle hover cue (matches the
+   dashed-outline convention Vision Board uses for its editable images). */
+.achievement-detail__center--clickable {
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.achievement-detail__center--clickable:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.015);
+}

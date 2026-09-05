@@ -1,0 +1,333 @@
+/* Editorsetting.css */
+
+.editordashboard-container {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--editordashboard-bg);
+  transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.editorSetting-container {
+  width: 100%;
+}
+
+.editorSetting-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 30px;
+}
+
+.editorSetting-card {
+  width: 100%;
+  background: #fcfbf9;
+  border: 1px solid #d8cfc5;
+  border-radius: 18px;
+  padding: 35px;
+}
+
+.editorSetting-sectionTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e1e1e;
+  margin-bottom: 30px;
+}
+
+/* PROFILE SECTION */
+
+.editorSetting-profileRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.editorSetting-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+}
+
+.editorSetting-avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.editorSetting-hiddenInput {
+  display: none;
+}
+
+.editorSetting-fileName {
+  font-size: 14px;
+  color: #4d4d4d;
+  word-break: break-word;
+}
+
+/* FORM */
+
+.editorSetting-formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.editorSetting-inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorSetting-inputGroup label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.editorSetting-inputGroup input,
+.editorSetting-inputGroup select {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #d2c7bb;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 15px;
+  background: #fff;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.editorSetting-inputGroup input:focus,
+.editorSetting-inputGroup select:focus {
+  border-color: #7a4b35;
+}
+
+/* UPLOAD GRID */
+
+.editorSetting-uploadGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.editorSetting-uploadBtn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  background: #7a4b35;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.editorSetting-uploadBtn:hover {
+  opacity: 0.9;
+}
+
+.editorSetting-uploadFullBtn {
+  width: 100%;
+  height: 52px;
+}
+
+.editorSetting-fullWidth {
+  grid-column: span 2;
+}
+
+/* BUTTONS */
+
+.editorSetting-buttonRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.editorSetting-cancelBtn,
+.editorSetting-saveBtn {
+  min-width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.editorSetting-cancelBtn {
+  background: #e8dfd5;
+  color: #3b3b3b;
+}
+
+.editorSetting-saveBtn {
+  background: #7a4b35;
+  color: white;
+}
+
+.editorSetting-saveBtn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .editordashboard-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .editorSetting-title {
+    font-size: 28px;
+  }
+
+  .editorSetting-card {
+    padding: 24px;
+  }
+
+  .editorSetting-formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .editorSetting-uploadGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .editorSetting-fullWidth {
+    grid-column: span 1;
+  }
+
+  .editorSetting-buttonRow {
+    flex-direction: column;
+  }
+
+  .editorSetting-cancelBtn,
+  .editorSetting-saveBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorSetting-wrapper {
+    padding: 20px 12px;
+  }
+
+  .editorSetting-title {
+    font-size: 24px;
+  }
+
+  .editorSetting-sectionTitle {
+    font-size: 20px;
+  }
+
+  .editorSetting-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .editorSetting-inputGroup input,
+  .editorSetting-inputGroup select {
+    height: 48px;
+    font-size: 14px;
+  }
+}
+.editorSetting-headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.editorSetting-profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.editorSetting-profileRow {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .editorSetting-headerRow {
+    align-items: flex-start;
+  }
+}
+
+/* Navigation Row */
+.editorSetting-nav-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Back Button Styling */
+.editorSetting-backBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #6b7280; /* Neutral gray for the icon */
+    transition: transform 0.2s ease;
+}
+
+.editorSetting-backBtn:hover {
+    transform: translateX(-3px);
+}
+
+/* Blue text from your screenshot */
+.editorSetting-backBtn .back-text {
+    color: #4a90e2; 
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.editorSetting-backBtn:hover .back-text {
+    text-decoration: underline;
+}
+
+/* Ensure the wrapper is centered and responsive */
+
+
+.editorSetting-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #111827;
+}
+
+/* Utility for hidden input */
+.editorSetting-hiddenInput {
+    display: none;
+}
+@media (max-width:425px) {
+  .editorSetting-headerRow{
+    flex-wrap: unset !important;
+  }
+  
+}

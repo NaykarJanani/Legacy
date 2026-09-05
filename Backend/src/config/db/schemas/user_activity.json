@@ -1,0 +1,41 @@
+{
+  "table_name": "user_activity",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "INTEGER NOT NULL"
+    },
+    {
+      "name": "question_id",
+      "type": "INTEGER NOT NULL"
+    },
+    {
+      "name": "session_id",
+      "type": "INTEGER"
+    },
+    {
+      "name": "time_spent",
+      "type": "INTEGER DEFAULT 0"
+    },
+    {
+      "name": "attempts",
+      "type": "INTEGER DEFAULT 1"
+    },
+    {
+      "name": "completed",
+      "type": "BOOLEAN DEFAULT false"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

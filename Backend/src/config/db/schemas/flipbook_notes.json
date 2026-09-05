@@ -1,0 +1,32 @@
+{
+  "table_name": "flipbook_notes",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "page_number",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "note_text",
+      "type": "TEXT DEFAULT ''"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id, page_number)"
+  ]
+}

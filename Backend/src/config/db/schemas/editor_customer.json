@@ -1,0 +1,24 @@
+{
+  "table_name": "editor_customer",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "editor_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "assigned_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (editor_id, user_id)"
+  ]
+}

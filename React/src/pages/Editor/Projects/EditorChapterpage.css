@@ -1,0 +1,238 @@
+/* ===========================
+   PAGE LAYOUT
+=========================== */
+
+.editor-page {
+  display: grid;
+  grid-template-columns: 280px 300px 1fr;
+  height: 100vh;
+  background: #faf7f2;
+  overflow: hidden;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ===========================
+   COMMON PANELS
+=========================== */
+
+.chapter-panel,
+.subchapter-panel,
+.question-panel {
+  background: #ffffff;
+  border-right: 1px solid #d8c7aa;
+  overflow-y: auto;
+}
+
+.question-panel {
+  border-right: none;
+  background: #fff;
+}
+
+.panel-title {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fbf7f1;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #8d6d40;
+  font-weight: 600;
+  border-bottom: 1px solid #e5d7c0;
+  text-transform: uppercase;
+}
+
+/* ===========================
+   CHAPTER LIST
+=========================== */
+
+.chapter-list {
+  padding: 10px;
+}
+
+.chapter-card {
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: .25s;
+  border: 1px solid transparent;
+}
+
+.chapter-card:hover {
+  background: #f3ebdf;
+}
+
+.chapter-card.active {
+  background: #f4ede7;
+  border-color: #d9b26c;
+}
+
+.chapter-title {
+  font-size: 18px;
+  color: #2b1f16;
+  line-height: 1.4;
+}
+
+.chapter-count {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #8b6d45;
+}
+
+/* ===========================
+   SUB CHAPTERS
+=========================== */
+
+.subchapter-list {
+  padding: 14px;
+}
+
+.subchapter-card {
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  transition: .25s;
+}
+
+.subchapter-card:hover {
+  background: #f4ebdd;
+}
+
+.subchapter-card.active {
+  background: #f4ede7;
+  border: 1px solid #d9b26c;
+}
+
+.subchapter-title {
+  font-size: 17px;
+  color: #2d231a;
+  margin-bottom: 6px;
+}
+
+.subchapter-count {
+  font-size: 13px;
+  color: #8d6d40;
+}
+
+/* ===========================
+   QUESTIONS
+=========================== */
+
+.question-panel {
+  padding: 10px;
+}
+
+.session-title {
+  font-size: 12px;
+  color: #9d7c4d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.question-heading {
+  margin-top: 8px;
+  margin-bottom: 28px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #e6dfd4;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.question-item:hover {
+  color: #8d5d22;
+  padding-left: 10px;
+}
+
+.question-item span {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+
+.empty-message {
+  color: #888;
+  text-align: center;
+  padding: 40px;
+  font-size: 15px;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+.chapter-panel::-webkit-scrollbar,
+.subchapter-panel::-webkit-scrollbar,
+.question-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chapter-panel::-webkit-scrollbar-thumb,
+.subchapter-panel::-webkit-scrollbar-thumb,
+.question-panel::-webkit-scrollbar-thumb {
+  background: #d7c7ae;
+  border-radius: 20px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 1100px) {
+  .editor-page {
+    grid-template-columns: 240px 260px 1fr;
+  }
+
+  .chapter-title {
+    font-size: 16px;
+  }
+
+  .subchapter-title {
+    font-size: 15px;
+  }
+
+  .question-heading {
+    font-size: 28px;
+  }
+
+  .question-item span {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 900px) {
+  .editor-page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .chapter-panel,
+  .subchapter-panel,
+  .question-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    max-height: none;
+  }
+
+  .question-heading {
+    font-size: 24px;
+  }
+}

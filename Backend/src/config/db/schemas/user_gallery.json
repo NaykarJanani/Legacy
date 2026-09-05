@@ -1,0 +1,46 @@
+{
+  "table_name": "user_gallery",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "file_url",
+      "type": "TEXT NOT NULL"
+    },
+    {
+      "name": "question_id",
+      "type": "int"
+    },
+    {
+      "name": "sub_session_id",
+      "type": "int"
+    },
+    {
+      "name": "session_id",
+      "type": "int"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "uploaded_by",
+      "type": "VARCHAR(20)",
+      "default": "customer"
+    },
+    {
+      "name": "uploaded_by_editor_id",
+      "type": "int"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "table_name": "approved_flipbooks",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "pdf_key",
+      "type": "TEXT NOT NULL"
+    },
+    {
+      "name": "storage_type",
+      "type": "TEXT DEFAULT 's3'"
+    },
+    {
+      "name": "pdf_file_name",
+      "type": "TEXT"
+    },
+    {
+      "name": "title",
+      "type": "TEXT DEFAULT 'My Legacy Book'"
+    },
+    {
+      "name": "total_pages",
+      "type": "int DEFAULT 0"
+    },
+    {
+      "name": "status",
+      "type": "TEXT DEFAULT 'published'"
+    },
+    {
+      "name": "updated_by_editor_id",
+      "type": "int"
+    },
+    {
+      "name": "customer_approved_at",
+      "type": "TIMESTAMP"
+    },
+    {
+      "name": "ready_at",
+      "type": "TIMESTAMP"
+    },
+    {
+      "name": "published_at",
+      "type": "TIMESTAMP"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id)"
+  ]
+}

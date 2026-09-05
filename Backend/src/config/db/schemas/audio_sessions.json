@@ -1,0 +1,41 @@
+{
+  "table_name": "audio_sessions",
+  "fields": [
+    {
+      "name": "audio_session_id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "uploaded_by",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "label",
+      "type": "VARCHAR(255)"
+    },
+    {
+      "name": "total_files",
+      "type": "INT DEFAULT 0"
+    },
+    {
+      "name": "status",
+      "type": "VARCHAR(30) DEFAULT 'uploaded'"
+    },
+    {
+      "name": "notes",
+      "type": "TEXT"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

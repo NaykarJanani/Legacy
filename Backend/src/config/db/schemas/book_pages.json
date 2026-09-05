@@ -1,0 +1,40 @@
+{
+  "table_name": "book_pages",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "page_index",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "left_boxes",
+      "type": "JSONB DEFAULT '[]'::jsonb"
+    },
+    {
+      "name": "right_boxes",
+      "type": "JSONB DEFAULT '[]'::jsonb"
+    },
+    {
+      "name": "updated_by_editor_id",
+      "type": "int"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id, page_index)"
+  ]
+}

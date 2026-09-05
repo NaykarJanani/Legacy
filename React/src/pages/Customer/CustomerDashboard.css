@@ -1,0 +1,299 @@
+
+.LifeStorypage-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  color: white;
+}
+
+.LifeStorypage-video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: black;
+}
+
+.LifeStorypage-video {
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.LifeStorypage-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+.LifeStorypage-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  z-index: 100;
+}
+
+.LifeStorypage-logo {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.LifeStorypage-menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.LifeStorypage-menu-btn:hover {
+  transform: scale(1.1);
+}
+
+.LifeStorypage-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 5rem 2rem;
+  transition: right 0.3s ease;
+  z-index: 99;
+}
+
+.LifeStorypage-sidebar-open {
+  right: 0;
+}
+
+.LifeStorypage-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.LifeStorypage-nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.LifeStorypage-nav-item:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  transform: translateX(-10px);
+}
+
+.LifeStorypage-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.LifeStorypage-main:active {
+  transform: scale(0.99);
+}
+
+.LifeStorypage-content {
+  text-align: center;
+  /* max-width: 800px; */
+  z-index: 1;
+    cursor: default !important;
+
+  
+}
+
+.LifeStorypage-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.LifeStorypage-logo-img {
+  width: 60%;
+  max-width: 600px;
+  height: auto;
+  margin: 2rem 0;
+
+}
+
+.LifeStorypage-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.LifeStorypage-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.LifeStorypage-text {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0.9;
+    cursor: pointer;
+
+}
+
+.LifeStorypage-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  z-index: 10;
+}
+
+.LifeStorypage-url {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .LifeStorypage-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .LifeStorypage-logo {
+    font-size: 1rem;
+  }
+
+  .LifeStorypage-sidebar {
+    width: 250px;
+    right: -250px;
+    padding: 4rem 1.5rem;
+  }
+
+  .LifeStorypage-nav-item {
+    font-size: 1.25rem;
+  }
+
+  .LifeStorypage-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .LifeStorypage-logo-img {
+    max-width: 400px;
+  }
+
+  .LifeStorypage-text {
+    font-size: 0.9rem;
+  }
+
+  .LifeStorypage-url {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .LifeStorypage-header {
+    padding: 1rem;
+  }
+
+  .LifeStorypage-logo {
+    font-size: 0.9rem;
+  }
+
+  .LifeStorypage-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .LifeStorypage-subtitle {
+    font-size: 1rem;
+  }
+
+  .LifeStorypage-logo-img {
+    max-width: 300px;
+    margin: 1rem 0;
+    width: 40%;
+  }
+
+  .LifeStorypage-description {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top:  unset !important;
+    
+  }
+
+  .LifeStorypage-text {
+    font-size: 0.85rem;
+  }
+
+  .LifeStorypage-url {
+    font-size: 0.6rem;
+    padding: 0 0.5rem;
+  }
+  .LifeStorypage-content{
+    margin-bottom: -20px;
+  }
+  
+}
+
+.LifeStorypage-main.lifting {
+  animation: liftUp 1s forwards;
+}
+
+@keyframes liftUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-30vh) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+
+.LifeStorypage-video-wrapper.lifting{
+  animation: liftUp 1s forwards;
+}

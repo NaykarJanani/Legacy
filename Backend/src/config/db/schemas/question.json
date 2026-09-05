@@ -1,0 +1,41 @@
+{
+  "table_name": "question",
+  "fields": [
+    {
+      "name": "question_id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "session_id",
+      "type": "int"
+    },
+    {
+      "name": "sub_session_id",
+      "type": "int"
+    },
+    {
+      "name": "question",
+      "type": "TEXT NOT NULL"
+    },
+    {
+      "name": "seq",
+      "type": "INT DEFAULT 0"
+    },
+    {
+      "name": "question_type",
+      "type": "TEXT DEFAULT 'text'"
+    },
+    {
+      "name": "status",
+      "type": "BOOLEAN DEFAULT TRUE"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

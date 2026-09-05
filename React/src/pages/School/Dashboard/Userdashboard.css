@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
+
+.userdashboard__root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Back button — pinned to the corner so it doesn't get pulled into the
+   flex row with the (centered) ring stage. */
+.userdashboard__back-button {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 2;
+  margin-bottom: 0;
+}
+
+/* ── dot grids ─────────────────────────────────────────── */
+.userdashboard__dots-left,
+.userdashboard__dots-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: clamp(6px, 1.2vw, 14px);
+  pointer-events: none;
+  z-index: 0;
+}
+.userdashboard__dots-left  { left: 0; }
+.userdashboard__dots-right { right: 0; }
+
+.userdashboard__dot {
+  display: block;
+  width: clamp(10px, 0.55vw, 10px);
+  height: clamp(10px, 0.55vw, 10px);
+  border-radius: 50%;
+  background: #d0cfe8;
+  opacity: 0.55;
+}
+
+/* ── stage ──────────────────────────────────────────────── */
+.userdashboard__stage {
+  position: relative;
+  width: clamp(280px, 72vmin, 560px);
+  height: clamp(280px, 72vmin, 560px);
+  z-index: 1;
+}
+
+/* ── ring SVG ───────────────────────────────────────────── */
+.userdashboard__ring-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.userdashboard__ring-spin {
+  transform-origin: 50px 50px;
+  animation: userdashboard-spin 14s linear infinite;
+}
+
+@keyframes userdashboard-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.userdashboard__ring-track {
+  fill: none;
+  stroke: #2e2b6e;
+  stroke-width: 0.5;
+  stroke-dasharray: 12 8;
+}
+
+.userdashboard__ring-dot {
+  fill: #7b5ea7;
+}
+
+/* ── SVG text labels ─────────────────────────────────────── */
+.userdashboard__svg-label {
+   font-family: 'Andika';
+  font-size: 5px;
+  font-weight: bolder;
+  fill: #b07d3a;
+  text-decoration: underline;
+  text-decoration-color: #c9954a;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: fill 0.2s;
+}
+
+.userdashboard__label-group:hover .userdashboard__svg-label {
+  fill: #7b5ea7;
+}
+
+/* ── portrait ────────────────────────────────────────────── */
+.userdashboard__portrait-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 4px 28px rgba(46, 43, 110, 0.10);
+}
+
+.userdashboard__portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.userdashboard__cta {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid #d4d0ea;
+  border-radius: 6px;
+  padding: 5px 16px;
+  font-size: clamp(9px, 1.3vmin, 13px);
+  color: #3a3760;
+  white-space: nowrap;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: background 0.2s;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.userdashboard__cta:hover { background: #ededf8; }
+
+/* ── responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .userdashboard__dots-left,
+  .userdashboard__dots-right {
+    display: none;
+  }
+
+  .userdashboard__stage {
+    width: clamp(300px, 90vw, 420px);
+    height: clamp(300px, 90vw, 420px);
+  }
+
+  /* Slightly smaller label font on small screens to accommodate wrapping */
+  .userdashboard__svg-label {
+    font-size: 4.2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .userdashboard__stage {
+    width: 96vw;
+    height: 96vw;
+  }
+
+  .userdashboard__svg-label {
+    font-size: 3.8px;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .userdashboard__ring-spin {
+    animation: none;
+  }
+}

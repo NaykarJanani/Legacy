@@ -1,0 +1,38 @@
+{
+    "table_name": "session",
+    "fields": [
+      {
+        "name": "session_id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "seq",
+        "type": "int"
+      },
+      {
+        "name": "title",
+        "type": "TEXT NOT NULL"
+      },
+      {
+        "name": "subtitle",
+        "type": "TEXT"
+      },
+      {
+      "name": "category",
+      "type": "VARCHAR(50)",
+      "default": "msme"
+    },
+      {
+        "name": "status",
+        "type": "BOOLEAN DEFAULT TRUE"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      }
+    ]
+  }

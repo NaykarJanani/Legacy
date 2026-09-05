@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pacifico&family=Patrick+Hand&family=Poiret+One&family=Pompiere&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.schooluserloginpage-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: #f8f8f8;
+}
+
+/* LEFT SIDE */
+
+.schooluserloginpage-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.schooluserloginpage-map-image {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* RIGHT SIDE */
+
+.schooluserloginpage-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.schooluserloginpage-sentence {
+    justify-content: center;
+}
+
+.schooluserloginpage-logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+p.schooluserloginpage-sentence {
+    margin: 18px;
+    color: #727DCF;
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+}
+
+.schooluserloginpage-logo-image {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.schooluserloginpage-form {
+    width: 100%;
+    max-width: 420px;
+}
+
+.schooluserloginpage-input-group {
+    margin-bottom: 2.5rem;
+    font-family: 'Andika', sans-serif;
+}
+
+.schooluserloginpage-input,
+.schooluserloginpage-select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d7d7d7;
+    background: transparent;
+    outline: none;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.schooluserloginpage-input::placeholder {
+    color: #8d8d8d;
+    font-style: italic;
+}
+
+.schooluserloginpage-select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.schooluserloginpage-button {
+    width: 170px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    background: #9d9bbc;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin: 2rem auto 0;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Andika', sans-serif;
+}
+
+.schooluserloginpage-button:hover {
+    transform: translateY(-2px);
+}
+
+.schooluserloginpage-signup {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #777;
+    cursor: pointer;
+    font-family: 'Andika', sans-serif;
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 1024px) {
+    .schooluserloginpage-logo-image {
+        width: 240px;
+    }
+
+    .schooluserloginpage-form {
+        max-width: 350px;
+    }
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+    .schooluserloginpage-container {
+        flex-direction: column;
+    }
+
+    .schooluserloginpage-left {
+        padding: 1.5rem;
+    }
+
+    .schooluserloginpage-map-image {
+        width: 85%;
+        max-width: 450px;
+    }
+
+    .schooluserloginpage-right {
+        padding: 2rem 1.5rem 3rem;
+    }
+
+    .schooluserloginpage-logo-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .schooluserloginpage-logo-image {
+        width: 220px;
+    }
+
+    .schooluserloginpage-form {
+        max-width: 100%;
+    }
+
+    .schooluserloginpage-input-group {
+        margin-bottom: 2rem;
+    }
+
+    .schooluserloginpage-button {
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media (max-width: 480px) {
+    .schooluserloginpage-left {
+        padding: 1rem;
+    }
+
+    .schooluserloginpage-map-image {
+        width: 100%;
+    }
+
+    .schooluserloginpage-logo-image {
+        width: 180px;
+    }
+
+    .schooluserloginpage-input,
+    .schooluserloginpage-select {
+        font-size: 0.9rem;
+    }
+
+    .schooluserloginpage-button {
+        height: 44px;
+        font-size: 0.9rem;
+    }
+}

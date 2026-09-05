@@ -1,0 +1,60 @@
+{
+  "table_name": "start_journey_content",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "INT NOT NULL DEFAULT 0"
+    },
+    {
+      "name": "image_key",
+      "type": "TEXT"
+    },
+    {
+      "name": "established_label",
+      "type": "TEXT DEFAULT 'Established'"
+    },
+    {
+      "name": "year",
+      "type": "TEXT DEFAULT '1998'"
+    },
+    {
+      "name": "experience_line1",
+      "type": "TEXT DEFAULT '27 Years of'"
+    },
+    {
+      "name": "experience_line2",
+      "type": "TEXT DEFAULT 'Excellence in Education'"
+    },
+    {
+      "name": "quote",
+      "type": "TEXT DEFAULT 'Education is the most powerful weapon which you can use to change the world.'"
+    },
+    {
+      "name": "image_scale",
+      "type": "NUMERIC DEFAULT 1"
+    },
+    {
+      "name": "image_pos_x",
+      "type": "NUMERIC DEFAULT 0"
+    },
+    {
+      "name": "image_pos_y",
+      "type": "NUMERIC DEFAULT 0"
+    },
+    {
+      "name": "updated_by",
+      "type": "INT"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id)"
+  ]
+}

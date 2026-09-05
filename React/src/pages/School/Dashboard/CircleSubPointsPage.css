@@ -1,0 +1,1053 @@
+/* ── TOKENS ── */
+.founderstory-root {
+  --fs-cream: #f5f0e8;
+  --fs-warm: #ede8de;
+  --fs-gold: #b5814a;
+  --fs-gold-light: #F0EBE2;
+  --fs-red: #8b1a1a;
+  --fs-text: #3a2e22;
+  --fs-muted: #7a6a58;
+  --fs-border: #d8cfc4;
+  --fs-radius: 10px;
+  --fs-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Georgia", serif;
+  color: var(--fs-text);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.founderstory-root *,
+.founderstory-root *::before,
+.founderstory-root *::after {
+  box-sizing: border-box;
+}
+
+/* Background image */
+.founderstory-bg-img {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Back button — sits in the top padding strip instead of adding its own
+   margin on top of the layout's padding (was doubling up the gap). */
+.founderstory-back-button {
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  z-index: 5;
+  margin-bottom: 0;
+}
+
+/* ── LAYOUT ── */
+.founderstory-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr 340px;
+  gap: 0;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 25px;
+}
+
+/* ── LEFT PANEL ── */
+.founderstory-left {
+  padding-right: 18px;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--fs-border) transparent;
+  background-color: white;
+}
+
+.founderstory-sessions-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founderstory-session-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Georgia", serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--fs-red);
+  text-transform: uppercase;
+  line-height: 1.4;
+  padding: 0 0 6px;
+  border-bottom: 1.5px solid var(--fs-gold-light);
+  transition: opacity 0.2s;
+}
+
+.founderstory-session-title:hover {
+  opacity: 0.75;
+}
+
+.founderstory-session-title.is-active {
+  color: var(--fs-red);
+}
+
+/* Answered state: subtle green-ish tick tint on the border */
+.founderstory-session-title.is-answered {
+  border-bottom-color: #b5814a;
+}
+
+.founderstory-session-label-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* ── Answered badge (✓) beside session label ── */
+.founderstory-answered-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--fs-gold);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* ── Inline "✓ Answered" badge beside question title ── */
+.founderstory-answered-inline-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--fs-gold-light);
+  border: 1px solid var(--fs-gold);
+  color: var(--fs-gold);
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  text-transform: none;
+}
+
+.founderstory-desc-box {
+  margin: 8px 0 10px;
+  padding: 0;
+}
+
+.founderstory-desc-box p {
+  font-size: 0.72rem;
+  color: var(--fs-muted);
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+.founderstory-subtopic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.founderstory-subtopic-btn {
+  width: 100%;
+  padding: 9px 14px;
+  border: none;
+  border-radius: var(--fs-radius);
+  background: var(--fs-warm);
+  color: var(--fs-text) !important;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.8rem !important;
+  line-height: 1.3 !important;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: var(--fs-shadow);
+  white-space: normal;
+  overflow: visible;
+  min-height: 36px;
+  margin-bottom: 10px;
+}
+
+.founderstory-subtopic-btn:hover {
+  background: var(--fs-gold-light);
+  color: #fff !important;
+}
+
+.founderstory-subtopic-btn.is-active {
+  background: var(--fs-gold);
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* ── CENTER PANEL ── */
+.founderstory-center {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.founderstory-question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.founderstory-question-mark {
+  font-size: 1.15rem;
+  color: var(--fs-muted);
+  flex-shrink: 0;
+  line-height: 1.7;
+  font-weight: 400;
+  margin-top: 26px;
+}
+
+.founderstory-question-headtext {
+  flex: 1;
+  min-width: 0;
+}
+
+.founderstory-question-title {
+  font-size: 1.15rem;
+  color: var(--fs-red);
+  margin: 0 0 8px;
+  font-weight: 700;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.founderstory-question-desc {
+  font-size: 0.8rem;
+  color: var(--fs-muted);
+  line-height: 1.65;
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Answer box */
+.founderstory-answer-box {
+  border: 1.5px dashed var(--fs-border);
+  border-radius: var(--fs-radius);
+  flex: 1;
+  min-height: 160px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+  background-color: white;
+}
+
+.founderstory-answer-box:hover {
+  border-color: var(--fs-gold);
+}
+
+.founderstory-answer-body {
+  flex: 1;
+}
+
+/* Voice row */
+.founderstory-voice-row {
+  display: flex;
+  align-items: center;
+}
+
+.founderstory-voice-spacer {
+  flex: 1;
+}
+
+.founderstory-mic-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+}
+
+.founderstory-mic-btn:hover {
+  background: rgba(181, 129, 74, 0.12);
+}
+
+.founderstory-mic-btn.is-recording {
+  animation: founderstory-pulse 1.2s infinite;
+}
+
+@keyframes founderstory-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(181, 129, 74, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(181, 129, 74, 0); }
+}
+
+.founderstory-rec-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  background: #d33;
+  border-radius: 50%;
+  animation: founderstory-blink 1s infinite;
+}
+
+@keyframes founderstory-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.founderstory-editlist-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background 0.18s;
+}
+
+.founderstory-editlist-btn:hover {
+  background: rgba(181, 129, 74, 0.12);
+}
+
+/* Upload box */
+.founderstory-upload-box {
+  border: 1.5px dashed var(--fs-border);
+  border-radius: var(--fs-radius);
+  height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  background-color: white;
+}
+
+.founderstory-upload-box:hover {
+  border-color: var(--fs-gold);
+}
+
+.founderstory-upload-label {
+  font-family: 'Sarabun', sans-serif;
+  color: var(--fs-gold);
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.founderstory-filename-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 10px 14px;
+  background: var(--fs-cream);
+  border: 1px solid var(--fs-border);
+  border-radius: 999px;
+  box-shadow: var(--fs-shadow);
+}
+
+.founderstory-filename-text {
+  font-size: 0.82rem;
+  color: var(--fs-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.founderstory-upload-remove {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--fs-text);
+  font-size: 0.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.founderstory-upload-remove:hover {
+  background: var(--fs-red);
+  color: #fff;
+}
+
+.founderstory-file-input {
+  display: none;
+}
+
+/* Nav */
+.founderstory-nav-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.fsp-next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #b5814a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.fsp-next-btn:hover:not(:disabled) {
+  background: #7a5c3a;
+}
+
+.fsp-next-btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.founderstory-nav-btn {
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: none;
+  background: var(--fs-gold);
+  color: #fff;
+  font-family: "Georgia", serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.18s, opacity 0.18s;
+}
+
+.founderstory-nav-btn:hover:not(:disabled) {
+  background: var(--fs-red);
+}
+
+.founderstory-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── RIGHT PANEL ── */
+.founderstory-right {
+  background: var(--fs-warm);
+  border-radius: 14px;
+  box-shadow: var(--fs-shadow);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* max-height: calc(100vh - 56px); */
+}
+
+.founderstory-ai-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.founderstory-ai-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fs-border) transparent;
+}
+
+.founderstory-ai-content p {
+  font-size: 0.8rem;
+  color: var(--fs-muted);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+.founderstory-type-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--fs-border);
+  padding-top: 10px;
+}
+
+.founderstory-type-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.82rem;
+  color: var(--fs-text);
+  outline: none;
+  padding: 4px 0;
+}
+
+.founderstory-type-input::placeholder {
+  color: var(--fs-muted);
+}
+
+.founderstory-type-send {
+  background: none;
+  border: none;
+  color: var(--fs-gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  transition: background 0.15s;
+}
+
+.founderstory-type-send:hover {
+  background: rgba(181, 129, 74, 0.1);
+}
+
+.founderstory-submit-row {
+  display: flex;
+  justify-content: center;
+}
+
+.founderstory-submit-btn {
+  padding: 8px 32px;
+  border: none;
+  border-radius: 20px;
+  background: var(--fs-gold);
+  color: #fff;
+  font-family: "Georgia", serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.founderstory-submit-btn:hover {
+  background: var(--fs-red);
+}
+
+/* ══════════════════════════════════════════════════════
+   ── ALREADY ANSWERED MODAL ──
+   ══════════════════════════════════════════════════════ */
+
+/* Full-screen dimmed backdrop */
+.fsmodal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(40, 28, 18, 0.52);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fsmodal-fadein 0.18s ease;
+}
+
+@keyframes fsmodal-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal card */
+.fsmodal-card {
+  position: relative;
+  background: var(--fs-cream, #f5f0e8);
+  border: 1.5px solid var(--fs-border, #d8cfc4);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  padding: 40px 36px 32px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: fsmodal-slidein 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fsmodal-slidein {
+  from { transform: translateY(18px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0)    scale(1);    opacity: 1; }
+}
+
+/* Check icon */
+.fsmodal-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* Heading */
+.fsmodal-title {
+  font-family: "Georgia", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--fs-red, #8b1a1a);
+  margin: 0 0 8px;
+}
+
+/* Subtitle */
+.fsmodal-subtitle {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.82rem;
+  color: var(--fs-muted, #7a6a58);
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+/* Question name pill */
+.fsmodal-question-name {
+  font-family: "Georgia", serif;
+  font-size: 0.88rem;
+  color: var(--fs-gold, #b5814a);
+  font-style: italic;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* Hint text */
+.fsmodal-hint {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.76rem;
+  color: var(--fs-muted, #7a6a58);
+  line-height: 1.65;
+  margin: 0 0 24px;
+}
+
+/* Action buttons row */
+.fsmodal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.fsmodal-btn {
+  padding: 9px 24px;
+  border-radius: 20px;
+  border: none;
+  font-family: "Georgia", serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.fsmodal-btn--primary {
+  background: var(--fs-gold, #b5814a);
+  color: #fff;
+}
+
+.fsmodal-btn--primary:hover {
+  background: var(--fs-red, #8b1a1a);
+}
+
+.fsmodal-btn--secondary {
+  background: transparent;
+  color: var(--fs-gold, #b5814a);
+  border: 1.5px solid var(--fs-gold, #b5814a);
+}
+
+.fsmodal-btn--secondary:hover {
+  background: var(--fs-gold-light, #f0ebe2);
+}
+
+/* Close × button */
+.fsmodal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--fs-muted, #7a6a58);
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+}
+
+.fsmodal-close:hover {
+  background: rgba(139, 26, 26, 0.1);
+  color: var(--fs-red, #8b1a1a);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .founderstory-layout {
+    grid-template-columns: 220px 1fr 280px;
+    padding: 20px 14px;
+  }
+}
+
+/* ── Chevron: hidden on desktop ── */
+.founderstory-session-chevron {
+  display: none;
+  font-size: 0.6rem;
+  color: var(--fs-muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  /* Overall layout: left panel on top (compact), then center, then right */
+  .founderstory-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 12px 12px;
+    gap: 12px;
+  }
+
+  /* Left panel: no scroll, compact height — accordion controls size */
+  .founderstory-left {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+    background: white;
+    border-radius: var(--fs-radius);
+    padding: 10px 12px;
+    box-shadow: var(--fs-shadow);
+  }
+
+  .founderstory-sessions-scroll {
+    gap: 6px;
+  }
+
+  /* Show chevron on mobile */
+  .founderstory-session-chevron {
+    display: inline-block;
+  }
+
+  /* Non-active sessions: just show the header, no subtopics */
+  .founderstory-session-group:not(.is-active-group) .founderstory-subtopic-list {
+    display: none;
+  }
+
+  .founderstory-session-group:not(.is-active-group) .founderstory-desc-box {
+    display: none;
+  }
+
+  /* Active session subtopics: hidden by default, shown when .is-mobile-open */
+  .founderstory-subtopic-list {
+    display: none;
+  }
+
+  .founderstory-subtopic-list.is-mobile-open {
+    display: flex;
+    animation: fs-accordion-open 0.2s ease;
+  }
+
+  .founderstory-desc-box {
+    display: none;
+  }
+
+  .founderstory-desc-box.is-mobile-open {
+    display: block;
+    animation: fs-accordion-open 0.2s ease;
+  }
+
+  @keyframes fs-accordion-open {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .founderstory-center {
+    padding: 0;
+  }
+
+  .founderstory-answer-box {
+    min-height: 200px;
+  }
+
+  .founderstory-right {
+    max-height: none;
+  }
+
+  .fsmodal-card {
+    padding: 32px 22px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .founderstory-question-title {
+    font-size: 1.05rem;
+  }
+
+  .founderstory-question-mark {
+    margin-top: 0;
+  }
+
+  .founderstory-nav-btn {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+  }
+
+  .founderstory-layout {
+    padding: 8px 8px;
+  }
+
+  .fsmodal-actions {
+    flex-direction: column;
+  }
+
+  .fsmodal-btn {
+    width: 100%;
+  }
+}
+
+/* ── Subtopic answered state ── */
+.founderstory-subtopic-btn.is-done {
+  background: var(--fs-gold-light);
+  border: 1.5px solid var(--fs-gold);
+  color: var(--fs-gold) !important;
+  font-weight: 600;
+  position: relative;
+}
+
+.founderstory-subtopic-check {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.7rem;
+  color: var(--fs-gold);
+  font-weight: 700;
+}
+
+.founderstory-subtopic-btn.is-done:hover {
+  background: var(--fs-gold);
+  color: #fff !important;
+}
+
+.founderstory-subtopic-btn.is-done .founderstory-subtopic-check {
+  color: inherit;
+}
+.founderstory-answer-box {
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.founderstory-answer-textbox {
+  width: 100%;
+  min-height: 180px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 12px;
+
+  padding: 14px;
+
+  resize: vertical;
+
+  margin-top: 16px;
+
+  font-size: 14px;
+}
+
+.founderstory-upload-audio-btn {
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  background: #b5814a;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.founderstory-audio-preview {
+  margin-top: 18px;
+}
+
+.founderstory-audio-preview audio {
+  width: 100%;
+}
+
+.is-recording {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+/* MAIN ANSWER CONTAINER */
+
+.founderstory-answer-box {
+  width: 100%;
+
+  min-height: 380px;
+
+  background: #f8f8f8;
+
+  border: 1.5px dashed #d6a36a;
+
+  border-radius: 30px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* TOP BUTTON ROW */
+
+.founderstory-voice-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+/* MIC */
+
+.founderstory-mic-btn {
+  width: 46px;
+
+  height: 46px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.is-recording {
+  animation: pulse 1s infinite;
+}
+
+
+/* UPLOAD BUTTON */
+
+.founderstory-upload-audio-btn {
+  background: #b5814a;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 26px;
+
+  border-radius: 14px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* TEXT AREA SECTION */
+
+.founderstory-answer-body {
+  flex: 1;
+
+  width: 100%;
+}
+
+
+/* FIXED LARGE TEXTAREA */
+
+.founderstory-answer-textarea {
+  width: 100%;
+
+  min-height: 260px;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  resize: none;
+
+  background: transparent;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #444;
+
+  padding: 10px;
+
+  font-family: inherit;
+}
+
+
+.founderstory-answer-textarea::placeholder {
+  color: #999;
+}
+
+
+/* AUDIO PREVIEW */
+
+.founderstory-audio-preview {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.founderstory-audio-preview audio {
+  width: 100%;
+}
+
+
+@keyframes pulse {
+  50% {
+    opacity: .6;
+  }
+}

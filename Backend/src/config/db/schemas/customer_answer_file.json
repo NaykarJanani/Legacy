@@ -1,0 +1,33 @@
+{
+    "table_name": "customer_answer_file",
+    "fields": [
+      {
+        "name": "customer_answer_file_id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "customer_answer_id",
+        "type": "int"
+      },
+       {
+        "name": "aws_url",
+        "type": "VARCHAR(255)"
+      },
+       {
+        "name": "type",
+        "type": "VARCHAR(255)"
+      },
+       {
+        "name": "size",
+        "type": "VARCHAR(255)"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      }
+    ]
+  }

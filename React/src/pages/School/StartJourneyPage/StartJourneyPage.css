@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+
+.start-journey-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background: #f5f2ee;
+}
+
+/* ==========================
+   BACKGROUND IMAGE
+========================== */
+
+.start-journey-page__bg-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+}
+
+/* ==========================
+   OVERLAY
+========================== */
+
+.start-journey-page__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  z-index: 1;
+}
+
+/* ==========================
+   ESTABLISHED SECTION
+========================== */
+
+.start-journey-page__established {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  z-index: 2;
+}
+
+.start-journey-page__established-label {
+  margin: 0;
+  font-family: 'Noto Serif', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #5c4a3d;
+}
+
+.start-journey-page__year {
+  margin: 2px 0;
+  font-family: 'Alegreya', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+
+  color: #8a4a2d;
+  line-height: 1;
+}
+
+.start-journey-page__experience {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #5c4a3d;
+}
+
+/* ==========================
+   QUOTE SECTION
+========================== */
+
+.start-journey-page__quote {
+  position: absolute;
+  top: 160px;
+  left: 30px;
+  font-family: 'Noto Serif', serif;
+  width: 180px;
+
+  z-index: 2;
+}
+
+.start-journey-page__quote p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+  font-style: italic;
+
+  color: #4a3c30;
+}
+
+.start-journey-page__line {
+  margin-top: 15px;
+
+  width: 100px;
+  height: 1px;
+
+  background: #cfcfcf;
+}
+
+/* ==========================
+   FOUNDER DETAILS
+========================== */
+
+.start-journey-page__founder {
+  position: absolute;
+
+  top: 34%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 600px;
+
+  text-align: center;
+
+  z-index: 2;
+}
+
+.start-journey-page__signature {
+  margin: 0;
+
+  font-family: cursive;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+
+  color: #222;
+
+  line-height: 1.1;
+}
+
+.start-journey-page__designation {
+  margin: 15px 0 10px;
+
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 500;
+
+  color: #222;
+
+  line-height: 1.3;
+}
+
+.start-journey-page__years {
+  margin: 0;
+
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+
+  color: #222;
+
+  line-height: 1.3;
+}
+
+/* ==========================
+   PLAY BUTTON
+========================== */
+
+.start-journey-page__play-wrapper {
+  position: absolute;
+
+  bottom: 50px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 3;
+}
+
+.start-journey-page__play-btn {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 32px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.start-journey-page__play-btn:hover {
+  transform: scale(1.08);
+}
+
+.start-journey-page__tooltip {
+  position: absolute;
+
+  bottom: 115%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #ffffff;
+  color: #8a4a2d;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.start-journey-page__tooltip::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -5px;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  background: white;
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.start-journey-page__play-btn:hover .start-journey-page__tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .start-journey-page__founder {
+    top: 38%;
+  }
+
+  .start-journey-page__play-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .start-journey-page {
+    min-height: 100vh;
+  }
+
+  .start-journey-page__established {
+    top: 20px;
+    left: 20px;
+  }
+
+  .start-journey-page__quote {
+    display: none;
+  }
+
+  .start-journey-page__founder {
+    top: 42%;
+    width: 90%;
+  }
+
+  .start-journey-page__play-wrapper {
+    bottom: 35px;
+  }
+
+  .start-journey-page__play-btn {
+    width: 70px;
+    height: 70px;
+
+    font-size: 24px;
+  }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width: 480px) {
+  /* Switch from absolute-overlay hero to a normal stacked layout:
+     image sits as a block on top, content flows below it. */
+  .start-journey-page {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .start-journey-page__bg-image {
+    position: static;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .start-journey-page__overlay {
+    display: none;
+  }
+
+  .start-journey-page__established {
+    position: static;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 16px 20px 0;
+  }
+
+  .start-journey-page__quote {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    padding: 16px 20px 0;
+  }
+
+  .start-journey-page__founder {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 16px 20px 0;
+  }
+
+  .start-journey-page__play-wrapper {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+  }
+
+  .start-journey-page__year {
+    font-size: 32px;
+  }
+
+  .start-journey-page__experience {
+    font-size: 12px;
+  }
+
+  .start-journey-page__signature {
+    font-size: 2rem;
+  }
+
+  .start-journey-page__designation {
+    font-size: 1rem;
+  }
+
+  .start-journey-page__years {
+    font-size: 0.9rem;
+  }
+
+  .start-journey-page__tooltip {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .start-journey-page__play-btn {
+    width: 30px;
+    height: 30px;
+
+    font-size: 20px;
+  }
+  .start-journey-page__play-icon{
+    font-size: 10px;
+  }
+}
+
+.start-journey-page__play-icon {
+  font-size: 20px;
+  /* adjust as needed */
+}
+

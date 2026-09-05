@@ -1,0 +1,345 @@
+/* Editorcardinnerpage.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* Main Card */
+
+.editorcardinnerpage-maincard {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 15px;
+  border: 1px solid #e4ddd6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.editorcardinnerpage-maincard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Top */
+
+.editorcardinnerpage-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.editorcardinnerpage-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #3b2a22;
+  line-height: 1.3;
+}
+
+.editorcardinnerpage-subtitle {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #86756d;
+}
+
+/* Status */
+
+.editorcardinnerpage-status {
+  background: #ffe9b7;
+  color: #9c6200;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Stats */
+
+.editorcardinnerpage-stats {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.editorcardinnerpage-statbox {
+  background: #f6f3ef;
+  border-radius: 14px;
+  padding: 26px 18px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.editorcardinnerpage-statbox:hover {
+  transform: translateY(-2px);
+  background: #f2ede8;
+}
+
+.editorcardinnerpage-statbox h2 {
+  font-size: 34px;
+  color: #3f2f27;
+  font-weight: 700;
+}
+
+.editorcardinnerpage-statbox p {
+  margin-top: 8px;
+  color: #7d7068;
+  font-size: 15px;
+}
+
+/* Progress */
+
+.editorcardinnerpage-progressbar {
+  width: 100%;
+  height: 10px;
+  background: #ece5de;
+  border-radius: 20px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.editorcardinnerpage-progressfill {
+  width: 0%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    #7b4a33,
+    #d4a373
+  );
+  animation: editorcardinnerpagepulse 2s infinite;
+}
+
+@keyframes editorcardinnerpagepulse {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Footer */
+
+.editorcardinnerpage-footer {
+  margin-top: 18px;
+  color: #8b7c73;
+  font-size: 14px;
+}
+
+/* Tools Section */
+
+.editorcardinnerpage-toolssection {
+  margin-top: 40px;
+}
+
+.editorcardinnerpage-tooltitle {
+  font-size: 18px;
+  color: #4a382f;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+/* Tools Grid */
+
+.editorcardinnerpage-toolsgrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+  gap: 20px;
+}
+
+/* Tool Card */
+
+.editorcardinnerpage-toolcard {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e7dfd8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.editorcardinnerpage-toolcard:hover {
+  transform: translateY(-4px);
+  border-color: #d6b18b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Left */
+
+.editorcardinnerpage-toolleft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Icon */
+
+.editorcardinnerpage-toolicon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #f8f2eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+}
+
+/* Text */
+
+.editorcardinnerpage-toolname {
+  font-size: 15px;
+  font-weight: 700;
+  color: #37271f;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editorcardinnerpage-toolsubtitle {
+  margin-top: 5px;
+  color: #84766d;
+  font-size: 13px;
+}
+
+/* New Badge */
+
+.editorcardinnerpage-newbadge {
+  background: #ffe7b8;
+  color: #9f6300;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Arrow */
+
+.editorcardinnerpage-arrow {
+  font-size: 24px;
+  color: #8f8177;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .editorcardinnerpage-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .editorcardinnerpage-wrapper {
+    padding: 18px;
+  }
+
+  .editorcardinnerpage-maincard {
+    padding: 20px;
+  }
+
+  .editorcardinnerpage-title {
+    font-size: 24px;
+  }
+
+  .editorcardinnerpage-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorcardinnerpage-wrapper {
+    padding: 14px;
+  }
+
+  .editorcardinnerpage-title {
+    font-size: 20px;
+  }
+
+  .editorcardinnerpage-toolcard {
+    padding: 16px;
+  }
+
+  .editorcardinnerpage-toolname {
+    font-size: 14px;
+  }
+}
+
+
+.editordashboard-container {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+
+  min-height: 100vh;
+  padding: 24px;
+
+  background: var(--editordashboard-bg);
+
+  transition: 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .editordashboard-container {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Navigation Header positioning */
+.editorcardinnerpage-nav-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Back Button styling */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #6b7280; /* Gray icon color */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+/* The Blue Label */
+.back-button span {
+    color: #4a90e2; /* Matching the blue from your images */
+    font-weight: 500;
+}
+
+.back-button:hover {
+    opacity: 0.8;
+}
+
+.back-button:hover span {
+    text-decoration: underline;
+}
+

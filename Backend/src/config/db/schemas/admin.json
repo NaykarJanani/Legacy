@@ -1,0 +1,37 @@
+{
+  "table_name": "admin",
+  "fields": [
+    {
+      "name": "admin_id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "name",
+      "type": "VARCHAR(100) NOT NULL"
+    },
+    {
+      "name": "email",
+      "type": "VARCHAR(150) UNIQUE NOT NULL"
+    },
+    {
+      "name": "password",
+      "type": "VARCHAR(255) NOT NULL"
+    },
+    {
+      "name": "phone",
+      "type": "VARCHAR(20)"
+    },
+    {
+      "name": "role",
+      "type": "VARCHAR(100) DEFAULT 'Administrator'"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

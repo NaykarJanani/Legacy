@@ -1,0 +1,101 @@
+{
+    "table_name": "users",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(100) NOT NULL"
+      },
+      {
+        "name": "mobile",
+        "type": "VARCHAR(15) NOT NULL"
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR(150) UNIQUE NOT NULL"
+      },
+      {
+        "name": "role",
+        "type": "VARCHAR(20) NOT NULL"
+      },
+      {
+         "name": "category",
+         "type": "VARCHAR(50)",
+         "default": "msme"
+      },
+      {
+        "name": "password",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+      {
+        "name": "industry",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "entityName",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "website",
+        "type": "VARCHAR(255)"
+      },
+       {
+        "name": "year",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "pincode",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "address",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "state",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+       {
+        "name": "district",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+      {
+        "name": "status",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "username",
+        "type": "VARCHAR(100) UNIQUE"
+      },
+      {
+        "name": "display_name",
+        "type": "VARCHAR(150)"
+      },
+      {
+        "name": "language",
+        "type": "VARCHAR(50)",
+        "default": "English"
+      },
+      {
+        "name": "timezone",
+        "type": "VARCHAR(50)",
+        "default": "IST"
+      },
+      {
+        "name": "avatar_key",
+        "type": "VARCHAR(500)"
+      }
+    ]
+  }

@@ -1,0 +1,61 @@
+{
+  "table_name": "audio_transcripts",
+  "fields": [
+    {
+      "name": "transcript_id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "audio_session_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "user_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "file_index",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "original_filename",
+      "type": "VARCHAR(255)"
+    },
+    {
+      "name": "s3_key",
+      "type": "VARCHAR(500)"
+    },
+    {
+      "name": "local_path",
+      "type": "VARCHAR(500)"
+    },
+    {
+      "name": "duration_seconds",
+      "type": "INT"
+    },
+    {
+      "name": "transcript_text",
+      "type": "TEXT"
+    },
+    {
+      "name": "whisper_response",
+      "type": "JSONB"
+    },
+    {
+      "name": "status",
+      "type": "VARCHAR(30) DEFAULT 'pending'"
+    },
+    {
+      "name": "error_message",
+      "type": "TEXT"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

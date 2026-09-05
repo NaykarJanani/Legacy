@@ -1,0 +1,134 @@
+.start-journey-page {
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.start-journey-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.start-journey-page__title {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.start-journey-page__menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.start-journey-page__main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+}
+
+.start-journey-page__left-content {
+  text-align: left;
+  margin-bottom: -70px;
+}
+
+.start-journey-page__journey-link {
+  color: #fff;
+  text-decoration: none;
+  font-size:21px;
+  line-height: 1.4;
+  font-family: fangsong;
+}
+
+.start-journey-page__circle {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.start-journey-page__map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-journey-page__map-img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.start-journey-page__sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  background-color: #000000;
+  padding-top: 60px;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.start-journey-page__sidebar--open {
+  right: 0;
+}
+
+.start-journey-page__sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.start-journey-page__sidebar a:hover {
+  color: #f1f1f1;
+  text-decoration: underline;
+  text-decoration-color: #fff;
+}
+
+.start-journey-page__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .start-journey-page__main-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .start-journey-page___left-content {
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+.start-journey-page__map-img{
+    width: 287px;
+}
+.start-journey-page__journey-link,.start-journey-page__title{
+    font-size: 17px;
+}
+ 
+}

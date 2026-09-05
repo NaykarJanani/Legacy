@@ -1,0 +1,35 @@
+﻿# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+Backend/node_modules/
+React/node_modules/
+node_modules/
+
+# Build files
+Backend/dist/
+React/dist/
+dist/
+dist-ssr/
+
+# Logs
+*.log
+logs/
+Backend/src/ip_logs/
+Backend/src/config/security-logs.jsonl
+
+# Backend uploads / generated files
+Backend/uploads/
+
+# Editor / OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

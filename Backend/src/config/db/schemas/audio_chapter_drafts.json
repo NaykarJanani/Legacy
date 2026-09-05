@@ -1,0 +1,17 @@
+{
+  "table_name": "audio_chapter_drafts",
+  "fields": [
+    { "name": "draft_id",         "type": "SERIAL PRIMARY KEY" },
+    { "name": "audio_session_id", "type": "INT NOT NULL" },
+    { "name": "user_id",          "type": "INT NOT NULL" },
+    { "name": "chapter_number",   "type": "INT NOT NULL" },
+    { "name": "chapter_title",    "type": "VARCHAR(255) NOT NULL" },
+    { "name": "draft_content",    "type": "TEXT" },
+    { "name": "editor_content",   "type": "TEXT" },
+    { "name": "status",           "type": "VARCHAR(50) DEFAULT 'draft'" },
+    { "name": "is_placeholder",   "type": "BOOLEAN DEFAULT FALSE" },
+    { "name": "editor_notes",     "type": "TEXT" },
+    { "name": "created_at",       "type": "TIMESTAMP DEFAULT NOW()" },
+    { "name": "updated_at",       "type": "TIMESTAMP DEFAULT NOW()" }
+  ]
+}

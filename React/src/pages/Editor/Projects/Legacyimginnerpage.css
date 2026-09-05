@@ -1,0 +1,162 @@
+/* ════════════════════════════════
+   ADJUST-PHOTO OVERLAY ON THE IMAGE
+════════════════════════════════ */
+.li-editable {
+  cursor: pointer;
+  position: relative;
+}
+
+.li-editable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.li-edit-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.li-edit-icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #8a1c2b;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+  transition: transform 0.15s ease;
+}
+
+.li-edit-icon-btn:hover {
+  transform: scale(1.08);
+}
+
+.li-saving-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+/* ════════════════════════════════
+   CROP / ADJUST MODAL
+════════════════════════════════ */
+.li-crop-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.li-crop-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .3);
+  font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+}
+
+.li-crop-modal h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #8a1c2b;
+  margin-bottom: 6px;
+}
+
+.li-crop-hint {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #6b6a5f;
+  margin-bottom: 16px;
+}
+
+.li-crop-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  background: #eee;
+  touch-action: none;
+  cursor: grab;
+}
+
+.li-crop-viewport--dragging {
+  cursor: grabbing;
+}
+
+.li-crop-img {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.li-crop-zoom-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #6b6a5f;
+}
+
+.li-crop-zoom-row input[type="range"] {
+  flex: 1;
+  accent-color: #8a1c2b;
+}
+
+.li-crop-error {
+  color: #a3402f;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.li-crop-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.li-crop-btn {
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.li-crop-btn--ghost {
+  background: transparent;
+  color: #6b6a5f;
+  border: 1px solid #d8dbe3;
+}
+
+.li-crop-btn--solid {
+  background: #8a1c2b;
+  color: #fff;
+}

@@ -1,0 +1,58 @@
+{
+    "table_name": "ai_req_res",
+    "fields": [
+      {
+        "name": "id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "api_responce_id",
+        "type": "VARCHAR(255) NOT NULL"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR(50) NOT NULL"
+      },
+      {
+        "name": "api_status",
+        "type": "VARCHAR(50) NOT NULL"
+      },
+      {
+        "name": "prompt",
+        "type": "TEXT NOT NULL"
+      },
+       {
+        "name": "res_content",
+        "type": "TEXT NOT NULL"
+      },
+      {
+        "name": "json_validate_status",
+        "type": "BOOLEAN NOT NULL"
+      },
+      {
+        "name": "json_data",
+        "type": "JSONB"
+      },
+      {
+        "name": "token_usages",
+        "type": "TEXT"
+      },
+      
+       {
+        "name": "individual_student",
+        "type": "BOOLEAN"
+      },
+       {
+        "name": "errors",
+        "type": "TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      }
+    ]
+  }

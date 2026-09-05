@@ -1,0 +1,36 @@
+/* Navigation header wrapper — positions the back button at the top-left
+   of a page. Add margin overrides via the `className` prop if a page
+   needs different spacing. */
+.back-button-nav-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Back Button styling — matches the style already used on
+   Editorcardinnerpage / Editorprojects / Editorsetting */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #6b7280; /* Gray icon color */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+.back-button span {
+    color: #4a90e2; /* Matching blue label */
+    font-weight: 500;
+}
+
+.back-button:hover {
+    opacity: 0.8;
+}
+
+.back-button:hover span {
+    text-decoration: underline;
+}

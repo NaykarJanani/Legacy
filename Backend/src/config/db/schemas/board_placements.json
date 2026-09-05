@@ -1,0 +1,52 @@
+{
+  "table_name": "board_placements",
+  "fields": [
+    {
+      "name": "id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "user_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "board_type",
+      "type": "VARCHAR(50) NOT NULL"
+    },
+    {
+      "name": "position_id",
+      "type": "VARCHAR(100) NOT NULL"
+    },
+    {
+      "name": "gallery_id",
+      "type": "int NOT NULL"
+    },
+    {
+      "name": "placed_by_editor_id",
+      "type": "int"
+    },
+    {
+      "name": "crop_zoom",
+      "type": "NUMERIC(6,3)"
+    },
+    {
+      "name": "crop_pos_x",
+      "type": "NUMERIC(8,2)"
+    },
+    {
+      "name": "crop_pos_y",
+      "type": "NUMERIC(8,2)"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ],
+  "constraints": [
+    "UNIQUE (user_id, board_type, position_id)"
+  ]
+}

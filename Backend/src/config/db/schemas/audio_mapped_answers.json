@@ -1,0 +1,81 @@
+{
+  "table_name": "audio_mapped_answers",
+  "fields": [
+    {
+      "name": "mapped_answer_id",
+      "type": "SERIAL PRIMARY KEY"
+    },
+    {
+      "name": "audio_session_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "transcript_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "user_id",
+      "type": "INT NOT NULL"
+    },
+    {
+      "name": "session_id",
+      "type": "INT"
+    },
+    {
+      "name": "sub_session_id",
+      "type": "INT"
+    },
+    {
+      "name": "question_id",
+      "type": "INT"
+    },
+    {
+      "name": "question_text",
+      "type": "TEXT"
+    },
+    {
+      "name": "extracted_answer",
+      "type": "TEXT"
+    },
+    {
+      "name": "confidence_score",
+      "type": "INT DEFAULT 0"
+    },
+    {
+      "name": "confidence_label",
+      "type": "VARCHAR(10) DEFAULT 'low'"
+    },
+    {
+      "name": "source_start_time",
+      "type": "VARCHAR(20)"
+    },
+    {
+      "name": "source_end_time",
+      "type": "VARCHAR(20)"
+    },
+    {
+      "name": "editor_status",
+      "type": "VARCHAR(20) DEFAULT 'pending'"
+    },
+    {
+      "name": "editor_notes",
+      "type": "TEXT"
+    },
+    {
+      "name": "final_answer",
+      "type": "TEXT"
+    },
+    {
+      "name": "customer_answer_id",
+      "type": "INT"
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    },
+    {
+      "name": "updated_at",
+      "type": "TIMESTAMP DEFAULT NOW()"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+
+.LegacyRegister-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #0d6efd;
+}
+
+.LegacyRegister-form .form-control {
+  border-radius: 10px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.LegacyRegister-form .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+.LegacyRegister-btn {
+  width: 100%;
+  border-radius: 12px;
+  background: #0d6efd !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.LegacyRegister-btn:hover {
+  background: #084298;
+}
+
+@media (max-width: 768px) {
+  .LegacyRegister-container {
+    padding: 30px 25px;
+  }
+}
+.legacyRFcol{
+    margin: 10px 0px 0px 0px !important;
+}

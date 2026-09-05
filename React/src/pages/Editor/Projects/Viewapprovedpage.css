@@ -1,0 +1,372 @@
+/* ── Reset & Tokens ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.vap-root {
+  --vap-cream:   #FFF8F0;
+  --vap-sand:    #F5EDE0;
+  --vap-rose:    #E8C4B8;
+  --vap-mauve:   #C9A0A0;
+  --vap-brown:   #8B5E52;
+  --vap-text:    #3D2B2B;
+  --vap-muted:   #7A6060;
+  --vap-accent:  #D4846A;
+  --vap-underline:#D4846A;
+  --vap-radius:  16px;
+  --vap-shadow:  0 4px 24px rgba(61,43,43,.10);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--vap-cream);
+  /* FIX: ensure root fills viewport and doesn't scroll itself */
+  height: 100vh;
+  overflow: hidden;
+  color: var(--vap-text);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.vap-header {
+  background: var(--vap-cream);
+  border-bottom: 2px solid var(--vap-rose);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* FIX: explicit height so calc() below is accurate */
+  height: 64px;
+  flex-shrink: 0;
+  z-index: 100;
+}
+.vap-header-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--vap-brown);
+  letter-spacing: 0.02em;
+}
+.vap-header-badge {
+  background: var(--vap-accent);
+  color: #fff;
+  font-size: .75rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  border-radius: 100px;
+  padding: 4px 14px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.vap-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 28px);
+  align-items: stretch;
+  /* FIX: fill exactly the remaining viewport height */
+  height: calc(100vh - 64px);
+  /* FIX: prevent layout from overflowing the root */
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .vap-root {
+    height: auto;
+    overflow: visible;
+  }
+  .vap-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+  .vap-pdf-panel {
+    height: 90vh;
+  }
+}
+
+/* ── PDF Panel ───────────────────────────────────────────── */
+.vap-pdf-panel {
+  background: #fff;
+  border-radius: var(--vap-radius);
+  box-shadow: var(--vap-shadow);
+  border: 2px solid var(--vap-rose);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* FIX: fill grid cell height; min-height:0 allows flex child to shrink */
+  height: 100%;
+  min-height: 0;
+}
+
+/* Toolbar */
+.vap-pdf-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--vap-sand);
+  border-bottom: 1px solid var(--vap-rose);
+  /* FIX: toolbar must not shrink so the iframe gets all remaining space */
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.vap-pdf-dot { width:12px;height:12px;border-radius:50%; flex-shrink:0; }
+.vap-pdf-dot-r{background:#FF6057;} .vap-pdf-dot-y{background:#FFBD2E;} .vap-pdf-dot-g{background:#27C93F;}
+.vap-pdf-name {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: .78rem;
+  color: var(--vap-muted);
+  margin-left: 6px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* Toolbar action group (New Tab + Download) */
+.vap-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.vap-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1.5px solid var(--vap-rose);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: .72rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s, border-color .18s, transform .15s;
+  white-space: nowrap;
+  background: #fff;
+  color: var(--vap-brown);
+}
+.vap-toolbar-btn:hover {
+  background: var(--vap-sand);
+  border-color: var(--vap-accent);
+  transform: translateY(-1px);
+}
+.vap-toolbar-btn svg {
+  flex-shrink: 0;
+  color: var(--vap-accent);
+}
+
+.vap-upload-btn {
+  background: var(--vap-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: .75rem;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: opacity .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.vap-upload-btn:hover { opacity: .85; }
+
+.vap-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: .72rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+.vap-status-pill--waiting {
+  background: #fef3c7;
+  color: #92400e;
+}
+.vap-status-pill--ready {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.vap-status-pill--published {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* FIX: frame must be a flex child that grows to fill remaining panel height */
+.vap-pdf-frame {
+  flex: 1 1 0;          /* grow, shrink, zero base — lets flex do the math */
+  min-height: 0;        /* critical: allows the frame to shrink below content size */
+  overflow: hidden;
+  position: relative;
+  display: flex;        /* makes iframe a flex child so it can stretch */
+}
+
+/* FIX: iframe fills the frame both in width AND height */
+.vap-pdf-iframe {
+  position: absolute;   /* absolute inside relative parent = perfect fill */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Drop zone */
+.vap-dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  border: 3px dashed var(--vap-rose);
+  margin: 20px;
+  border-radius: 12px;
+  background: var(--vap-cream);
+  transition: background .2s, border-color .2s;
+  padding: 40px 24px;
+  text-align: center;
+}
+.vap-dropzone.vap-drag-active {
+  background: #FFF0E6;
+  border-color: var(--vap-accent);
+}
+.vap-dropzone-icon { font-size: 3rem; }
+.vap-dropzone-title {
+  font-size: 1rem;
+  color: var(--vap-brown);
+  font-weight: 600;
+}
+.vap-dropzone-hint {
+  font-size: .8rem;
+  color: var(--vap-muted);
+  font-family: 'Segoe UI', sans-serif;
+}
+.vap-choose-btn {
+  background: var(--vap-accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: .9rem;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: transform .15s, opacity .15s;
+  font-weight: 600;
+}
+.vap-choose-btn:hover { transform: scale(1.04); opacity: .9; }
+
+/* ── Right Panel ─────────────────────────────────────────── */
+.vap-right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 22px);
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Sticker Box */
+.vap-sticker-box {
+  background: #fff;
+  border-radius: var(--vap-radius);
+  box-shadow: var(--vap-shadow);
+  border: 2px solid var(--vap-rose);
+  padding: clamp(12px, 2vw, 20px);
+}
+.vap-sticker-box-title {
+  font-size: clamp(.85rem, 1.5vw, 1rem);
+  color: var(--vap-brown);
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vap-sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.5vw, 14px);
+}
+.vap-sticker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: clamp(8px, 1.2vw, 12px) 6px;
+  border-radius: 14px;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+  background: var(--vap-cream);
+  user-select: none;
+}
+.vap-sticker:hover { transform: scale(1.08); box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+.vap-sticker.vap-sticker-active {
+  border-color: var(--vap-accent);
+  box-shadow: 0 0 0 3px rgba(212,132,106,.25);
+  transform: scale(1.06);
+}
+.vap-sticker-emoji { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1; }
+.vap-sticker-label {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(.6rem, 1vw, .72rem);
+  font-weight: 700;
+  color: var(--vap-text);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Verification Stage title */
+.vap-stage-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--vap-brown);
+  text-align: center;
+  letter-spacing: .02em;
+}
+
+/* Text blocks */
+.vap-text-card {
+  background: #fff;
+  border-radius: var(--vap-radius);
+  box-shadow: var(--vap-shadow);
+  border: 2px solid var(--vap-rose);
+  padding: clamp(14px, 2vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
+.vap-para {
+  font-size: clamp(.82rem, 1.3vw, .95rem);
+  line-height: 1.75;
+  color: var(--vap-text);
+}
+.vap-para-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--vap-underline);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  color: var(--vap-brown);
+  font-weight: 500;
+}
+.vap-divider {
+  border: none;
+  border-top: 1.5px solid var(--vap-rose);
+  margin: 2px 0;
+}
+/* Back button inside the verification-stage header */
+.vap-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vap-back-button {
+  margin-bottom: 0;
+}

@@ -1,0 +1,49 @@
+{
+    "table_name": "customer_answer",
+    "fields": [
+      {
+        "name": "customer_answer_id",
+        "type": "SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "user_id",
+        "type": "int"
+      },
+      {
+        "name": "question_id",
+        "type": "int"
+      },
+       {
+        "name": "ai_req_res_id",
+        "type": "int"
+      },
+       {
+        "name": "session_id",
+        "type": "int"
+      },
+      {
+        "name": "sub_session_id",
+        "type": "int"
+      },
+      {
+        "name": "answer",
+        "type": "TEXT"
+      },
+      {
+        "name": "source",
+        "type": "VARCHAR(20) DEFAULT 'manual'"
+      },
+      {
+        "name": "is_approved",
+        "type": "BOOLEAN DEFAULT false"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP DEFAULT NOW()"
+      }
+    ]
+  }

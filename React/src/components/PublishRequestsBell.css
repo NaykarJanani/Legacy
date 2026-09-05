@@ -1,0 +1,206 @@
+/* =========================================
+   PUBLISH REQUESTS BELL
+========================================= */
+
+.publishbell-wrapper {
+  position: relative;
+}
+
+.publishbell-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  color: #6b3d2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.publishbell-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 18px rgba(107, 61, 46, 0.15);
+}
+
+.publishbell-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #c0392b;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid white;
+}
+
+.publishbell-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 320px;
+  max-width: 84vw;
+  background: white;
+  border: 1px solid #e8dfd6;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(107, 61, 46, 0.18);
+  z-index: 1200;
+  overflow: hidden;
+}
+
+.publishbell-badge-overdue {
+  background: #a3260f;
+  animation: publishbell-pulse 1.6s infinite;
+}
+
+@keyframes publishbell-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(163, 38, 15, 0.45); }
+  70% { box-shadow: 0 0 0 6px rgba(163, 38, 15, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(163, 38, 15, 0); }
+}
+
+.publishbell-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.publishbell-urgency-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.publishbell-urgency-fresh {
+  background: #2e9e5b;
+}
+
+.publishbell-urgency-aging {
+  background: #d97706;
+}
+
+.publishbell-urgency-overdue {
+  background: #c0392b;
+}
+
+.publishbell-dropdown-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e8dfd6;
+}
+
+.publishbell-dropdown-header h4 {
+  font-size: 14px;
+  color: #3d2b25;
+  font-weight: 700;
+}
+
+.publishbell-dropdown-header span {
+  font-size: 11px;
+  color: #91857d;
+}
+
+.publishbell-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.publishbell-empty {
+  padding: 22px 16px;
+  font-size: 13px;
+  color: #91857d;
+  text-align: center;
+}
+
+.publishbell-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f2ece5;
+}
+
+.publishbell-item:last-child {
+  border-bottom: none;
+}
+
+.publishbell-item-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+}
+
+.publishbell-item-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(107, 61, 46, 0.08);
+  color: #6b3d2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.publishbell-item-text p {
+  font-size: 12.5px;
+  color: #3d2b25;
+  line-height: 1.4;
+}
+
+.publishbell-item-text span {
+  font-size: 10.5px;
+  color: #91857d;
+}
+
+.publishbell-dismiss-btn {
+  border: 1px solid #e8dfd6;
+  background: transparent;
+  color: #6b3d2e;
+  font-size: 10.5px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 6px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.publishbell-dismiss-btn:hover:not(:disabled) {
+  background: #6b3d2e;
+  color: white;
+}
+
+.publishbell-dismiss-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .publishbell-dropdown {
+    bottom: auto;
+    top: calc(100% + 10px);
+    left: auto;
+    right: 0;
+  }
+}

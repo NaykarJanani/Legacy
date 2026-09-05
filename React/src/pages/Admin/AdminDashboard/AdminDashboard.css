@@ -1,0 +1,45 @@
+.dashboard-page {
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+.dashboard-stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(160, 4, 4, 0.08);
+}
+
+.dashboard-stat-card h6 {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.dashboard-stat-card h2 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-module-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 100%;
+  box-shadow: 0 2px 12px rgba(10, 72, 74, 0.08);
+}
+
+.dashboard-module-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-module-card h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dashboard-module-card p {
+  color: #6c757d;
+  min-height: 60px;
+}
